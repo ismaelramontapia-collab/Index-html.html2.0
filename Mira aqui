@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b08">
+  <meta name="description" content="Entrena, transforma y evoluciona en Somos Fitness, gimnasio en Los Alcarrizos, Santo Domingo Oeste. Consulta nuestros horarios y contáctanos por WhatsApp.">
+  <meta property="og:title" content="Somos Fitness | Entrena, transforma, evoluciona">
+  <meta property="og:description" content="Tu próximo entrenamiento empieza aquí. Estamos en Los Alcarrizos, Santo Domingo Oeste.">
+  <title>Somos Fitness | Entrena, transforma, evoluciona</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #090b08;
+      --surface: #11150f;
+      --surface-raised: #181e15;
+      --lime: #b4ff39;
+      --lime-deep: #8ddd15;
+      --paper: #f4f6f0;
+      --muted: #b4bbae;
+      --line: rgba(244, 246, 240, .14);
+      --display: 'Anton', Impact, 'Arial Narrow', sans-serif;
+      --body: 'Barlow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: var(--body);
+      color: var(--paper);
+      background: var(--ink);
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; background: var(--ink); color: var(--paper); font-size: 1.05rem; line-height: 1.6; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--lime); font-size: .82rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 24px; height: 2px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: .98; text-transform: uppercase; }
+    h2 { margin-bottom: 15px; font-size: clamp(2.45rem, 6vw, 4.4rem); letter-spacing: .01em; }
+    h3 { margin-bottom: 12px; font-size: 1.8rem; color: var(--lime); }
+    .lead { max-width: 62ch; color: var(--muted); font-size: 1.12rem; }
+    .topbar { position: relative; z-index: 2; border-bottom: 1px solid var(--line); background: rgba(9, 11, 8, .9); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: .04em; }
+    .brand-mark { width: 35px; height: 35px; display: grid; place-items: center; border: 2px solid var(--lime); color: var(--lime); font-family: var(--display); font-size: 1.1rem; transform: rotate(-8deg); }
+    .brand-name span { color: var(--lime); }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 3vw, 34px); }
+    .nav-links a { color: var(--muted); font-size: .95rem; font-weight: 700; text-decoration: none; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--lime); }
+    .nav-links .nav-cta { padding: 9px 15px; border: 1px solid var(--lime); border-radius: 4px; color: var(--lime); }
+
+    .hero { position: relative; overflow: hidden; padding: clamp(70px, 11vw, 132px) 0 86px; background: radial-gradient(ellipse at 83% 25%, rgba(180,255,57,.16), transparent 34%), linear-gradient(125deg, #090b08 45%, #11170d 100%); }
+    .hero::after { content: 'SF'; position: absolute; right: -3vw; bottom: -14vw; color: rgba(180,255,57,.035); font: 48vw/.8 var(--display); pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+    .hero h1 { margin: 18px 0 20px; font-size: clamp(4.3rem, 15vw, 10.4rem); letter-spacing: -.015em; }
+    .hero h1 span { display: block; color: var(--lime); }
+    .hero-quote { max-width: 660px; margin-bottom: 12px; font-size: clamp(1.25rem, 3vw, 1.8rem); font-weight: 700; line-height: 1.25; }
+    .hero-quote em { color: var(--lime); font-style: normal; }
+    .hero-location { margin-bottom: 24px; color: var(--muted); }
+    .hero-location strong { color: var(--paper); }
+    .status { display: inline-flex; align-items: center; gap: 10px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .95rem; font-weight: 700; }
+    .status::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: #8a9283; }
+    .status.is-open { border-color: rgba(180,255,57,.5); color: var(--lime); }
+    .status.is-open::before { background: var(--lime); box-shadow: 0 0 12px rgba(180,255,57,.75); }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 29px; }
+    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 9px; padding: 12px 21px; border: 1px solid var(--lime); border-radius: 4px; font-weight: 800; text-decoration: none; transition: transform .2s ease, background .2s ease, color .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--lime); color: var(--ink); }
+    .button.primary:hover { background: var(--paper); border-color: var(--paper); }
+    .button.outline { color: var(--lime); }
+    .button.outline:hover { background: var(--lime); color: var(--ink); }
+    .hero-note { margin: 17px 0 0; color: var(--muted); font-size: .9rem; }
+
+    section { padding: clamp(68px, 9vw, 104px) 0; }
+    .section-head { max-width: 720px; margin-bottom: 34px; }
+    .section-head .eyebrow { margin-bottom: 14px; }
+    .section-head .lead { margin-bottom: 0; }
+    .training { background: var(--surface); }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .pillar { min-height: 235px; padding: 28px; border: 1px solid var(--line); background: linear-gradient(145deg, var(--surface-raised), #10130e); }
+    .pillar-num { display: block; margin-bottom: 35px; color: rgba(180,255,57,.65); font: 1.4rem var(--display); }
+    .pillar p { max-width: 32ch; margin-bottom: 0; color: var(--muted); }
+
+    .anniversary { position: relative; overflow: hidden; padding: clamp(30px, 5vw, 58px); background: var(--lime); color: var(--ink); }
+    .anniversary::after { content: '01'; position: absolute; right: 15px; bottom: -82px; color: rgba(9,11,8,.07); font: 20rem/.9 var(--display); pointer-events: none; }
+    .anniversary-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 36px; }
+    .anniversary .eyebrow { color: #263b0d; }
+    .anniversary .eyebrow::before { background: currentColor; }
+    .anniversary h2 { max-width: 650px; margin: 14px 0 12px; font-size: clamp(2.5rem, 6vw, 4.5rem); }
+    .anniversary p { max-width: 55ch; margin-bottom: 0; color: #273419; font-weight: 600; }
+    .countdown { display: flex; flex-wrap: wrap; gap: 9px; flex-shrink: 0; }
+    .countdown div { min-width: 70px; padding: 12px 10px; background: var(--ink); color: var(--lime); text-align: center; }
+    .countdown b { display: block; font: 2.1rem/.95 var(--display); }
+    .countdown small { color: var(--paper); font-size: .74rem; }
+    #event-message { margin-top: 14px; color: #273419; font-weight: 800; }
+
+    .hours { background: var(--surface); }
+    .hours-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr); gap: 48px; align-items: start; }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table th, .hours-table td { padding: 15px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+    .hours-table th { color: var(--muted); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
+    .hours-table td:last-child, .hours-table th:last-child { text-align: right; }
+    .hours-table tr.today td { color: var(--lime); font-weight: 800; }
+    .hours-table tr.today td:first-child::before { content: 'HOY · '; font-size: .72em; letter-spacing: .04em; }
+    .hours-table tr.closed td:last-child { color: var(--muted); }
+    .hours-note { margin: 14px 0 0; color: var(--muted); font-size: .9rem; }
+    .hours-card { padding: 27px; border: 1px solid var(--line); background: var(--ink); }
+    .hours-card h3 { margin-bottom: 14px; }
+    .hours-card p { color: var(--muted); }
+    .hours-card .button { width: 100%; margin-top: 5px; }
+
+    .contact { background: radial-gradient(ellipse at 95% 15%, rgba(180,255,57,.09), transparent 34%), var(--ink); }
+    .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .contact-card { min-height: 224px; padding: 28px; border: 1px solid var(--line); background: rgba(17,21,15,.8); }
+    .contact-card .eyebrow { margin-bottom: 20px; }
+    .contact-card p { margin-bottom: 18px; color: var(--muted); }
+    .contact-value { display: block; margin-bottom: 20px; font-size: clamp(1.25rem, 3vw, 1.7rem); font-weight: 800; text-decoration: none; }
+    .contact-value:hover { color: var(--lime); }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .social-link { color: var(--lime); font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    footer { padding: 28px 0 82px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    footer a { color: var(--lime); }
+    .floating-wa { position: fixed; z-index: 5; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 8px; padding: 13px 18px; border: 1px solid var(--lime); border-radius: 999px; background: var(--lime); box-shadow: 0 8px 28px rgba(0,0,0,.42); color: var(--ink); font-weight: 800; text-decoration: none; }
+    .floating-wa:hover { background: var(--paper); border-color: var(--paper); }
+
+    @media (max-width: 760px) {
+      .nav { min-height: 68px; }
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .pillars { grid-template-columns: 1fr; }
+      .pillar { min-height: auto; }
+      .pillar-num { margin-bottom: 20px; }
+      .anniversary-inner, .hours-grid { grid-template-columns: 1fr; display: grid; gap: 28px; }
+      .countdown { justify-content: flex-start; }
+      .hours-grid { gap: 32px; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 30px, 1120px); }
+      .hero { padding: 66px 0 70px; }
+      .hero h1 { font-size: clamp(4rem, 18vw, 6rem); }
+      .actions .button { width: 100%; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-card { min-height: 0; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .countdown { gap: 6px; }
+      .countdown div { min-width: 62px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      :root { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Somos Fitness, inicio">
+        <span class="brand-mark" aria-hidden="true">SF</span>
+        <span class="brand-name">Somos <span>Fitness</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#entrenamiento">Entrenamiento</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#contacto">Encuéntranos</a>
+        <a class="nav-cta" id="nav-whatsapp" href="#contacto">Escríbenos</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="wrap hero-content">
+        <span class="eyebrow">Training club · Los Alcarrizos</span>
+        <h1 id="hero-title">Somos <span>Fitness</span></h1>
+        <p class="hero-quote">No esperes a sentirte listo. <em>Empieza hoy</em> y deja que la constancia te transforme.</p>
+        <p class="hero-location">Entrena, transforma, evoluciona en <strong>Santo Domingo Oeste</strong>.</p>
+        <span class="status" id="open-status" aria-live="polite">Consultando horario…</span>
+        <div class="actions">
+          <a class="button primary" id="hero-whatsapp" href="#contacto">Escríbenos por WhatsApp</a>
+          <a class="button outline" id="hero-map" href="https://maps.app.goo.gl/tJSffs2YXuQK6s2s5" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+        </div>
+        <p class="hero-note">Tu próximo entrenamiento puede ser el comienzo de algo grande.</p>
+      </div>
+    </section>
+
+    <section class="training" id="entrenamiento" aria-labelledby="training-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Tu proceso, a tu ritmo</span>
+          <h2 id="training-title">Entrena para ti</h2>
+          <p class="lead">Cada persona empieza desde un punto distinto. Lo que cuenta es dar el primer paso, construir el hábito y volver a intentarlo cada día.</p>
+        </div>
+        <div class="pillars">
+          <article class="pillar">
+            <span class="pillar-num">01 / FUERZA</span>
+            <h3>Hazte más fuerte</h3>
+            <p>Avanza a tu propio ritmo y reconoce todo lo que tu esfuerzo puede lograr.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-num">02 / CONSTANCIA</span>
+            <h3>Un día a la vez</h3>
+            <p>Los cambios se construyen con decisiones pequeñas y la voluntad de seguir.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-num">03 / BIENESTAR</span>
+            <h3>Muévete por ti</h3>
+            <p>Haz del entrenamiento parte de una vida más activa, fuerte y saludable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="anniversary-title">
+      <div class="anniversary">
+        <div class="anniversary-inner">
+          <div>
+            <span class="eyebrow">Un año de grandes logros</span>
+            <h2 id="anniversary-title">Celebramos contigo</h2>
+            <p>La familia Somos Fitness cumple su primer año. Acompáñanos el 3 de noviembre a las 7:00 p. m.</p>
+            <p id="event-message" aria-live="polite"></p>
+          </div>
+          <div class="countdown" role="timer" aria-label="Cuenta regresiva para el aniversario">
+            <div><b id="days">0</b><small>días</small></div>
+            <div><b id="hours">0</b><small>horas</small></div>
+            <div><b id="minutes">0</b><small>min</small></div>
+            <div><b id="seconds">0</b><small>seg</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hours" id="horarios" aria-labelledby="hours-title">
+      <div class="wrap hours-grid">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Planifica tu visita</span>
+            <h2 id="hours-title">Horarios</h2>
+            <p class="lead">El horario de hoy queda resaltado automáticamente. Hora local de Santo Domingo.</p>
+          </div>
+          <table class="hours-table">
+            <thead><tr><th scope="col">Día</th><th scope="col">Horario</th></tr></thead>
+            <tbody id="hours-body">
+              <tr data-day="1"><td>Lunes</td><td>5:00 a. m. – 11:00 p. m.</td></tr>
+              <tr data-day="2"><td>Martes</td><td>5:00 a. m. – 11:00 p. m.</td></tr>
+              <tr data-day="3"><td>Miércoles</td><td>5:30 a. m. – 11:00 p. m.</td></tr>
+              <tr data-day="4"><td>Jueves</td><td>5:00 a. m. – 11:00 p. m.</td></tr>
+              <tr data-day="5"><td>Viernes</td><td>5:00 a. m. – 11:00 p. m.</td></tr>
+              <tr data-day="6"><td>Sábado</td><td>7:00 a. m. – 2:00 p. m.</td></tr>
+              <tr data-day="0" class="closed"><td>Domingo</td><td>Cerrado</td></tr>
+            </tbody>
+          </table>
+          <p class="hours-note">Los horarios pueden cambiar en días feriados. Escríbenos para confirmar.</p>
+        </div>
+        <aside class="hours-card">
+          <span class="eyebrow">Hoy puede ser tu día</span>
+          <h3>Haz espacio para ti</h3>
+          <p>Consulta cualquier detalle antes de venir. Estamos para ayudarte a dar el primer paso.</p>
+          <a class="button outline" id="hours-whatsapp" href="#contacto">Preguntar por WhatsApp</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Te esperamos</span>
+          <h2 id="contact-title">Ven a entrenar</h2>
+          <p class="lead">Escríbenos o abre el mapa para planificar tu visita a Somos Fitness.</p>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <span class="eyebrow">Ubicación</span>
+            <p>Estamos en Los Alcarrizos, Santo Domingo Oeste.</p>
+            <a class="contact-value" id="contact-map" href="https://maps.app.goo.gl/tJSffs2YXuQK6s2s5" target="_blank" rel="noopener noreferrer">Abrir en Google Maps ↗</a>
+            <div class="contact-actions">
+              <a class="button outline" href="https://maps.app.goo.gl/tJSffs2YXuQK6s2s5" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+            </div>
+          </article>
+          <article class="contact-card">
+            <span class="eyebrow">Llamadas y WhatsApp</span>
+            <p>¿Tienes una pregunta? Conversemos.</p>
+            <a class="contact-value" id="phone-link" href="tel:+18092046037">+1 (809) 204-6037</a>
+            <div class="contact-actions">
+              <a class="button primary" id="contact-whatsapp" href="#contacto">Escribir ahora</a>
+              <a class="button outline" href="tel:+18092046037">Llamar</a>
+            </div>
+          </article>
+        </div>
+        <p style="margin:25px 0 0;color:var(--muted)">Síguenos en Instagram: <a class="social-link" href="https://www.instagram.com/somosfitnessrd/" target="_blank" rel="noopener noreferrer">@somosfitnessrd ↗</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Somos Fitness · Training club · Los Alcarrizos</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+  <a class="floating-wa" id="floating-whatsapp" href="#contacto" aria-label="Escríbenos por WhatsApp">WhatsApp ↗</a>
+
+  <script>
+    // Datos del gimnasio: edita aquí el teléfono, el enlace del mapa y los horarios.
+    const GYM = {
+      phone: "18092046037",
+      map: "https://maps.app.goo.gl/tJSffs2YXuQK6s2s5",
+      message: "Hola, quiero información sobre Somos Fitness.",
+      timezone: "America/Santo_Domingo",
+      anniversary: "2026-11-03T19:00:00-04:00"
+    };
+
+    // Días: 0 = domingo; horarios expresados en minutos después de medianoche.
+    const SCHEDULE = [
+      { day: "Domingo", open: null, close: null },
+      { day: "Lunes", open: 300, close: 1380 },
+      { day: "Martes", open: 300, close: 1380 },
+      { day: "Miércoles", open: 330, close: 1380 },
+      { day: "Jueves", open: 300, close: 1380 },
+      { day: "Viernes", open: 300, close: 1380 },
+      { day: "Sábado", open: 420, close: 840 }
+    ];
+
+    const hourLabel = minutes => {
+      const hour = Math.floor(minutes / 60);
+      const minute = minutes % 60;
+      const period = hour >= 12 ? "p. m." : "a. m.";
+      const hour12 = ((hour + 11) % 12) + 1;
+      return `${hour12}:${String(minute).padStart(2, "0")} ${period}`;
+    };
+
+    const whatsappUrl = `https://wa.me/${GYM.phone}?text=${encodeURIComponent(GYM.message)}`;
+    ["nav-whatsapp", "hero-whatsapp", "hours-whatsapp", "contact-whatsapp", "floating-whatsapp"].forEach(id => {
+      const link = document.getElementById(id);
+      link.href = whatsappUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    });
+    ["hero-map", "contact-map"].forEach(id => {
+      document.getElementById(id).href = GYM.map;
+    });
+
+    function santoDomingoNow() {
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: GYM.timezone,
+        weekday: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23"
+      }).formatToParts(new Date());
+      const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+      const weekdayIndex = {
+        sunday: 0, monday: 1, tuesday: 2, wednesday: 3,
+        thursday: 4, friday: 5, saturday: 6
+      }[values.weekday.toLowerCase()];
+      return { day: weekdayIndex, minutes: Number(values.hour) * 60 + Number(values.minute) };
+    }
+
+    function updateOpenStatus() {
+      const now = santoDomingoNow();
+      const today = SCHEDULE[now.day];
+      const isOpen = today.open !== null && now.minutes >= today.open && now.minutes < today.close;
+      const status = document.getElementById("open-status");
+      document.querySelectorAll("#hours-body tr").forEach(row => {
+        row.classList.toggle("today", Number(row.dataset.day) === now.day);
+      });
+      status.classList.toggle("is-open", isOpen);
+      if (isOpen) {
+        status.textContent = `Abierto ahora · cerramos a las ${hourLabel(today.close)}`;
+        return;
+      }
+      for (let offset = 1; offset <= 7; offset++) {
+        const index = (now.day + offset) % 7;
+        const next = SCHEDULE[index];
+        if (next.open !== null) {
+          const when = offset === 1 ? "mañana" : next.day.toLowerCase();
+          status.textContent = `Cerrado ahora · volvemos ${when} a las ${hourLabel(next.open)}`;
+          return;
+        }
+      }
+      status.textContent = "Cerrado en este momento";
+    }
+
+    function updateAnniversary() {
+      const target = new Date(GYM.anniversary).getTime();
+      const remaining = target - Date.now();
+      if (remaining <= 0) {
+        ["days", "hours", "minutes", "seconds"].forEach(id => document.getElementById(id).textContent = "0");
+        document.getElementById("event-message").textContent = "¡Gracias por acompañarnos en nuestro primer año! Vamos por muchos más.";
+        return;
+      }
+      document.getElementById("days").textContent = Math.floor(remaining / 86400000);
+      document.getElementById("hours").textContent = Math.floor(remaining % 86400000 / 3600000);
+      document.getElementById("minutes").textContent = Math.floor(remaining % 3600000 / 60000);
+      document.getElementById("seconds").textContent = Math.floor(remaining % 60000 / 1000);
+    }
+
+    updateOpenStatus();
+    updateAnniversary();
+    window.setInterval(updateOpenStatus, 60000);
+    window.setInterval(updateAnniversary, 1000);
+  </script>
+</body>
+</html>
